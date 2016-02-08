@@ -1,0 +1,100 @@
+<html>
+	<head>
+		<title>Login | Signup</title>
+		<style>
+			body {
+					text-align: center;
+			}
+			.hidden {
+					display: none;
+			}
+			div {
+					margin: auto;
+					width: 300px;
+			}
+			.backBtn {
+					float: right;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>MySelfieTech</h1>
+		<div id="homePage">
+			<input type="button" value="Login" onclick="toggleLoginForm()"/>
+			<input type="button" value="SignUp" onclick="toggleSignUpForm()"/>
+		</div>
+		<div id="LoginForm" class="hidden">
+			<form>
+				<label>Login</label><br/>
+				<input id="emailTxt" type="email" placeholder="Email" required="true"/><br/>
+				<input id="pwdTxt" type="password" placeholder="Password" required="true"/><br/>
+				<input type="button" value="Login" onclick="loginUser()"/><br/>
+				<input type="reset" value="Back" class="backBtn" onclick="toggleLoginForm()"/><br/>
+				<span id="errorSpan" class="hidden">Email or Password is incorrect.</span>
+			</form>
+		</div>
+		<div id="welcomePage" class="hidden">
+			<span>Hi OM, Welcome to Home Page</span>
+			<input type="button" value="Logout" onclick="reset()"/>
+		</div>
+		<div id="SignUpForm" class="hidden">
+			<form>
+				<label>SignUp</label><br/>
+				<input type="text" placeholder="Name" required="true"/><br/>
+				<input type="email" placeholder="Email" required="true"/><br/>
+				<input type="password" placeholder="Password" required="true"/><br/>
+				<input type="button" value="SignUp"/><br/>
+				<input type="reset" value="Back" class="backBtn" onclick="toggleSignUpForm()"/><br/>
+			</form>
+		</div>
+	</body>
+	<script>
+		var h = document.getElementById('homePage');
+		var l = document.getElementById('LoginForm');
+		var w = document.getElementById('welcomePage');
+		var s = document.getElementById('SignUpForm');
+		var u = document.getElementById('emailTxt');
+		var p = document.getElementById('pwdTxt');
+		var e = document.getElementById('errorSpan');
+		
+		function toggleLoginForm() {
+			if(l.classList.contains('hidden')) {
+				l.classList.remove('hidden');
+				h.classList.add('hidden');
+			}
+			else {
+				l.classList.add('hidden');
+				h.classList.remove('hidden');
+			}
+		}
+		
+		function toggleSignUpForm() {
+			if(s.classList.contains('hidden')) {
+				s.classList.remove('hidden');
+				h.classList.add('hidden');
+			}
+			else {
+				s.classList.add('hidden');
+				h.classList.remove('hidden');
+			}
+		}
+		
+		function loginUser() {
+			if(u.value == 'om.prakash22588@gmail.com' && p.value == 'om@123') {
+				w.classList.remove('hidden');
+				l.classList.add('hidden');
+			}
+			else {
+				e.classList.remove('hidden');
+			}
+		}
+		
+		function reset() {
+			h.classList.remove('hidden');
+			l.classList.add('hidden');
+			w.classList.add('hidden');
+			s.classList.add('hidden');
+			e.classList.add('hidden');
+		}
+	</script>
+</html>
